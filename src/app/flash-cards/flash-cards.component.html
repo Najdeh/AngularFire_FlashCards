@@ -1,0 +1,16 @@
+<p>
+  flash-cards works!
+</p>
+
+
+<div *ngIf="flashCards">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{flashCards[0].payload.doc.data().data.question}}</h5>
+              <p *ngIf="getAnswerToggle" class="card-text"> {{flashCards[0].payload.doc.data().data.answer}}</p>
+              <button (click)="getAnswer()" href="#" class="btn btn-primary">Válasz</button>
+              <a href="#" class="btn btn-primary">Tudtam</a>
+              <a href="#" class="btn btn-primary">Nem tudtam</a>
+            </div>
+          </div>
+</div>

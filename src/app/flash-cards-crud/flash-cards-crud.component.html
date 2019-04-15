@@ -1,0 +1,24 @@
+<p>
+  flash-cards-crud works!
+</p>
+<form (ngSubmit)="addCard(f)" #f="ngForm">
+<div class="example-container form-group">
+  <select name="deck" id="deck" ngModel>
+    <option value="1" selected>deck 1</option>
+    <option value="2">deck 2</option>
+  </select>
+   <label for="name">question</label>
+   <input type="text" id="question" name="question" ngModel>
+   <label for="name">answer</label>
+   <input type="text" id="answer" name="answer" ngModel>
+   <button type="submit">Submit</button>
+  </div>
+  <div>
+  </div>
+</form>
+  
+<!-- <p>
+    <button (click)="addCard()">AddCard</button>
+  </p> -->
+
+  
