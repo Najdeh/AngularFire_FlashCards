@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -61,5 +62,12 @@ export class FirebaseService {
   getCards() {
    return this.db.collection('flashCards').snapshotChanges();
   }
+
+  incConfidence(id) {
+    this.db.collection('flashCards').doc(id).update({
+      confidenceLevel: firebase.firestore.FieldValue.increment(1)
+    });
+  }
+
 
 }

@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class FlashCardsComponent implements OnInit {
   flashCards: Array<any>;
+  cardCounter = 0;
   getAnswerToggle = false;
 
   constructor(
@@ -29,6 +30,11 @@ export class FlashCardsComponent implements OnInit {
 
   showData() {
     //console.log(this.flashCards.payload.doc.data().confidenceLevel);
+  }
+
+  confidenceIncrement(id) {
+    // this.firebaseService.incConfidence(id);
+    this.cardCounter++;
   }
 
   getAnswer() {
