@@ -17,10 +17,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 
+import { AuthService } from './services/auth.service';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from '@angular/material';
 import { FlashCardsComponent } from './flash-cards/flash-cards.component';
 import { FlashCardsCrudComponent } from './flash-cards-crud/flash-cards-crud.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -31,11 +36,13 @@ import { FlashCardsCrudComponent } from './flash-cards-crud/flash-cards-crud.com
     NewUserComponent,
     HomeComponent,
     FlashCardsComponent,
-    FlashCardsCrudComponent
+    FlashCardsCrudComponent,
+    NavbarComponent
   ],
   entryComponents: [AvatarDialogComponent],
   imports: [
     BrowserModule,
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
@@ -47,7 +54,7 @@ import { FlashCardsCrudComponent } from './flash-cards-crud/flash-cards-crud.com
     MatSliderModule,
     MatDialogModule
   ],
-  providers: [FirebaseService, EditUserResolver],
+  providers: [FirebaseService, EditUserResolver, AuthService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
