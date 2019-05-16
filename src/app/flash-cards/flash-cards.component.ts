@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { FormControl } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-flash-cards',
@@ -12,7 +14,7 @@ export class FlashCardsComponent implements OnInit {
   getAnswerToggle = false;
 
   constructor(
-    public firebaseService: FirebaseService
+    public firebaseService: FirebaseService, public AService: AuthService
   ) { }
 
   ngOnInit() {
@@ -27,12 +29,8 @@ export class FlashCardsComponent implements OnInit {
       });
   }
 
-  showData() {
-    //console.log(this.flashCards.payload.doc.data().confidenceLevel);
-  }
-
   getAnswer() {
     this.getAnswerToggle = true;
-  }
+     }
 
 }
